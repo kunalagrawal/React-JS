@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 
 class AddProject extends Component {
   constructor(){
@@ -17,6 +18,7 @@ class AddProject extends Component {
     } else{
       this.setState({
         newProject:{
+          id: uuid.v4(),
           title: this.refs.title.value,
           category: this.refs.category.value
         }}, function(){
@@ -40,8 +42,10 @@ class AddProject extends Component {
             <label> Category </label> <br/>
             <select ref="category">
               {categoryOptions}
-            </select><br/>
+            </select>
+            <br/>
           </div>
+          <br/>
           <input type="submit" value="Submit" />
           <br/>
         </form>
